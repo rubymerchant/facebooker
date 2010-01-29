@@ -120,6 +120,9 @@ module Facebooker
             @raw_facebooker_configuration['alternative_keys'].keys.include?(api_key)
         return @raw_facebooker_configuration['alternative_keys'][api_key].merge(
                 'api_key' => api_key )
+      #api_key name is misleading, it should be app_name or app_alias
+      elsif @raw_facebooker_configuration[api_key]
+        return @raw_facebooker_configuration[api_key]
       end
       return false
     end
